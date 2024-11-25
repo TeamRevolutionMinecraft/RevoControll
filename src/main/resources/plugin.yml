@@ -1,0 +1,9 @@
+name: RevoServer
+version: '1.0'
+main: net.revo.revoServer.RevoServer
+api-version: '1.21'
+prefix: RVLT System
+load: STARTUP
+authors: [Builders_Inc]
+description: A System for the team Revolution Minecraft MMO Server
+website: team-revolution.net
