@@ -1,7 +1,7 @@
 package net.revo.revoServer.cmd;
 
 import net.revo.revoServer.RevoServer;
-import net.revo.revoServer.revoPlayer.RevoPlayer;
+import net.revo.revoServer.revoCharacter.RevoChar;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.command.TabCompleter;
@@ -29,7 +29,7 @@ public abstract class Command implements CommandExecutor, TabCompleter {
          * @param player the player which executes this command
          * @param args the args of the original command invoke but stripped of the first element
          */
-        void command(@NotNull RevoPlayer player, @NotNull String[] args);
+        void command(@NotNull RevoChar player, @NotNull String[] args);
     }
 
     public Command(RevoServer plugin, String commandName, List<String> permissions)
@@ -65,7 +65,7 @@ public abstract class Command implements CommandExecutor, TabCompleter {
 
             try
             {
-                action.command(RevoPlayer.getOnlinePlayer((Player) commandSender).orElseThrow(),
+                action.command(RevoChar.getOnlinePlayer((Player) commandSender).orElseThrow(),
                         Arrays.copyOfRange(strings, 1, strings.length));
                 return true;
             } catch (Exception e) {
